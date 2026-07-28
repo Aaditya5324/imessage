@@ -11,6 +11,7 @@ export async function protectroute(req, res, next) {
         if (!user) {
             return res.status(401).json({ message: 'Unauthorized' });
         }
+        req.user = user;
         next();
     } catch (error) {
         console.error('Error in protectroute middleware:', error);

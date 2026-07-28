@@ -11,7 +11,8 @@ import { clerkMiddleware } from '@clerk/express'
 import { connectDB } from './lib/db.js';
 import job from './lib/cron.js';
 import User from './models/user.model.js';
-import authRoute from './routes/auth.route.js';
+import authRoute from './routes/auth.routes.js';
+import messageRoutes from './routes/message.route.js';
 const app = express();
 const port = 3000;
 const publicDir = path.join(process.cwd(), "public");
@@ -28,6 +29,7 @@ app.get('/h', (req, res) => {
   res.status(200).send('Hello World!');
 });
 app.use('/api/auth',authRoute);
+app.use("/api/messages", messageRoutes);
 if (fs.existsSync(publicDir)) {
   app.use(express.static(publicDir));
 

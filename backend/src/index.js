@@ -12,6 +12,7 @@ import { connectDB } from './lib/db.js';
 import User from './models/user.model.js';
 const app = express();
 const port = 3000;
+const publicDir = path.join(process.cwd(), "public");
 const FRONTEND_URL = process.env.FRONTEND_URL;
 app.use(express.json());
 app.use(cors({

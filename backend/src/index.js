@@ -6,7 +6,7 @@ import cors from 'cors';
 import "dotenv/config.js";
 import fs from "fs";
 import path from "path";
-import clerkWebhook from "./webhooks/clerk.webhook.js";
+import clerkWebhook from "./webhooks/clerk.webhooks.js";
 import { clerkMiddleware } from '@clerk/express'
 import { connectDB } from './lib/db.js';
 import job from './lib/cron.js';

@@ -1,6 +1,6 @@
 import express from 'express';
 import User from '../models/user.model.js';
-import {verifywebhook} from '@clerk/backend/webhooks';
+import {verifyWebhook} from '@clerk/backend/webhooks';
 const router = express.Router();
 
 router.post('/', async (req, res) => {
@@ -40,7 +40,7 @@ router.post('/', async (req, res) => {
     }
     catch(err){
         console.log("Clerk webhooks error",err);
-        res.status(200).json("error in webhook verification");
+        res.status(400).json("error in webhook verification");
 
     }
 });

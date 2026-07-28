@@ -94,13 +94,13 @@ export async function sendMessage(req, res) {
       video: videoUrl,
     });
 
-    await newMessage.save();
+    await newMessage.save(); 
 
-    /*const receiverSocketId = getReceiverSocketId(receiverId);
+    const receiverSocketId = getReceiverSocketId(receiverId);
     // only send the message in realtime if user is online
     if (receiverSocketId) {
       io.to(receiverSocketId).emit("newMessage", newMessage);
-    }*/
+    }
 
     res.status(201).json(newMessage);
   } catch (error) {

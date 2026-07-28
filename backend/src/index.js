@@ -13,7 +13,8 @@ import job from './lib/cron.js';
 import User from './models/user.model.js';
 import authRoute from './routes/auth.routes.js';
 import messageRoutes from './routes/message.route.js';
-const app = express();
+import { app, server } from "./lib/socket.js";
+//const app = express();
 const port = 3000;
 const publicDir = path.join(process.cwd(), "public");
 const FRONTEND_URL = process.env.FRONTEND_URL;
@@ -37,7 +38,7 @@ if (fs.existsSync(publicDir)) {
     res.sendFile(path.join(publicDir, "index.html"), (err) => next(err));
   });
 }
-app.listen(port, () => {
+server.listen(port, () => {
   connectDB();
   console.log(`Server is running on http://localhost:${port}`);
   if(process.env.NODE_ENV === "production") { job.start(); }

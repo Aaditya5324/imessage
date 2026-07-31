@@ -1,5 +1,4 @@
-import { Show, SignInButton, SignUpButton, UserButton } from '@clerk/react'
-import { Button } from '@heroui/react';
+
 import { ThemeProvider } from './context/ThemeContext';
 import { WallpaperProvider } from './context/WallpaperContext';
 import { Routes, Route, Navigate } from 'react-router';

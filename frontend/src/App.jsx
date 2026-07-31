@@ -8,6 +8,9 @@ import AuthPage from './pages/Authpage';
 import {useAuth} from '@clerk/react'
 function App() {
   const { isSignedIn , isLoaded } = useAuth();
+  if (!isLoaded) {
+    return <div>Loading...</div>;
+  }
 
   return (
     <ThemeProvider>

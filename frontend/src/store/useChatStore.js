@@ -25,7 +25,7 @@ export const useChatStore = create(
       getUsers: async () => {
         set({ isUsersLoading: true });
         try {
-          const res = await axiosInstance.get("/messages/users");
+          const res = await axiosInstance.get("/messages/user");
           set((state) => ({
             users: res.data,
             selectedUser:

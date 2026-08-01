@@ -8,8 +8,14 @@ import PageLoader from "./components/PageLoader";
 import { useAuthStore } from "./store/useAuthStore";
 import { useEffect } from "react";
 import { Toaster } from "react-hot-toast";
+import { attachClerkToken } from "./lib/axios";
 
 function App() {
+  const { getToken } = useAuth();
+
+  useEffect(() => {
+    attachClerkToken(getToken);
+  }, [getToken]);
   const { isSignedIn, isLoaded } = useAuth();
   const clearAuth = useAuthStore((state) => state.clearAuth);
   const checkAuth = useAuthStore((state) => state.checkAuth);
